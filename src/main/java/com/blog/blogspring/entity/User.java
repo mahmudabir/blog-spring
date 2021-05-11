@@ -9,8 +9,8 @@ public class User {
 
     @Id
     @GeneratedValue(
-            strategy= GenerationType.IDENTITY,
-            generator="native"
+            strategy = GenerationType.IDENTITY,
+            generator = "native"
     )
     @GenericGenerator(
             name = "native",
@@ -26,6 +26,21 @@ public class User {
     @ManyToOne
     private Role role;
 
+
+   public User() {
+
+    }
+
+   public User(int id, String name, String username, String password, String fatherName, String motherName, int roleId) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.username = username;
+        this.password = password;
+        this.fatherName = fatherName;
+        this.motherName = motherName;
+        this.role = new Role(roleId, "");
+    }
 
     public int getId() {
         return id;
@@ -73,5 +88,13 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

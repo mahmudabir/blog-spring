@@ -1,5 +1,6 @@
 package com.blog.blogspring.service;
 
+import com.blog.blogspring.entity.Role;
 import com.blog.blogspring.entity.User;
 import com.blog.blogspring.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,7 @@ public class UserService {
     }
 
     public void addUser(User user) {
+        user.setRole(new Role(2, ""));
         userRepository.save(user);
     }
 

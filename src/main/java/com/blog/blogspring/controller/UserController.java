@@ -1,5 +1,6 @@
 package com.blog.blogspring.controller;
 
+import com.blog.blogspring.entity.Role;
 import com.blog.blogspring.entity.User;
 import com.blog.blogspring.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

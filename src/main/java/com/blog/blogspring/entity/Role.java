@@ -12,8 +12,8 @@ public class Role {
 
     @Id
     @GeneratedValue(
-            strategy= GenerationType.IDENTITY,
-            generator="native"
+            strategy = GenerationType.IDENTITY,
+            generator = "native"
     )
     @GenericGenerator(
             name = "native",
@@ -21,6 +21,16 @@ public class Role {
     )
     private int id;
     private String role_name;
+
+    Role() {
+
+    }
+
+   public Role(int id, String role_name) {
+        super();
+        this.id = id;
+        this.role_name = role_name;
+    }
 
 
     public int getId() {
