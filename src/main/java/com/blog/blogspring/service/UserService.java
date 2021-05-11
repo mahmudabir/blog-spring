@@ -24,4 +24,16 @@ public class UserService {
                 .forEach(users::add);
         return users;
     }
+
+    public void updateUser(User user) {
+        userRepository.save(user);
+    }
+
+    public void addUser(User user) {
+        userRepository.save(user);
+    }
+
+    public void removeUser(int userId) {
+        userRepository.deleteById(userId);
+    }
 }
