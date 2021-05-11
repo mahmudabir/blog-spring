@@ -9,7 +9,7 @@ public class Comment {
 
     @Id
     @GeneratedValue(
-            strategy= GenerationType.AUTO,
+            strategy= GenerationType.IDENTITY,
             generator="native"
     )
     @GenericGenerator(

@@ -9,7 +9,7 @@ public class User {
 
     @Id
     @GeneratedValue(
-            strategy= GenerationType.AUTO,
+            strategy= GenerationType.IDENTITY,
             generator="native"
     )
     @GenericGenerator(
@@ -18,6 +18,7 @@ public class User {
     )
     private int id;
     private String name;
+    private String username;
     private String password;
     private String fatherName;
     private String motherName;
@@ -64,5 +65,13 @@ public class User {
 
     public void setMotherName(String motherName) {
         this.motherName = motherName;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
