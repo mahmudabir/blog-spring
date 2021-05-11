@@ -1,9 +1,8 @@
-package com.blog.entity;
+package com.blog.blogspring.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Post {
