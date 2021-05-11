@@ -1,5 +1,6 @@
 package com.blog.blogspring.entity;
 
+import javafx.geometry.Pos;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -23,6 +24,16 @@ public class Post {
     @ManyToOne
     private User user;
 
+   public Post(){
+
+    }
+
+   public Post(int id, String title, String content, int userId){
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.user = new User(userId, "", "","","","",2);
+    }
 
     public int getId() {
         return id;
@@ -46,5 +57,13 @@ public class Post {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
