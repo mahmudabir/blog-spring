@@ -41,7 +41,7 @@ public class PostService {
 
     public List<Post> getSearchedPost(String s) {
         List<Post> posts = new ArrayList<>();
-        postRepository.findAllByContentContainingOrTitleContainingOrUserUsername(s)
+        postRepository.findAllByContentContainingOrTitleContainingOrUserUsername(s, s, s)
                 .forEach(posts::add);
 
         return posts;

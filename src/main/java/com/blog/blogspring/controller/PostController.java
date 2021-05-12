@@ -43,7 +43,7 @@ public class PostController {
         postService.deletePost(postId);
     }
 
-    @PutMapping("/search/{s}")
+    @GetMapping("/search/{s}")
     public List<Post> getSearchedPost(@PathVariable String s) {
       return postService.getSearchedPost(s);
     }
