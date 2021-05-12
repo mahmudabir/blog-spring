@@ -23,6 +23,11 @@ public class PostController {
         return postService.getAllPosts();
     }
 
+    @GetMapping("/{postId}")
+    public Post getPost(@PathVariable int postId) {
+        return postService.getPost(postId);
+    }
+
     @PostMapping("")
     public void addPost(@RequestBody Post post) {
         postService.addPost(post);
@@ -36,5 +41,10 @@ public class PostController {
     @DeleteMapping("/{postId}")
     public void getUser(@PathVariable int postId) {
         postService.deletePost(postId);
+    }
+
+    @PutMapping("/search/{s}")
+    public List<Post> getSearchedPost(@PathVariable String s) {
+      return postService.getSearchedPost(s);
     }
 }

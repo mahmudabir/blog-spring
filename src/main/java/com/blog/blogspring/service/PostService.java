@@ -17,7 +17,7 @@ public class PostService {
     private PostRepository postRepository;
 
     public List<Post> getAllPosts() {
-        List<Post> posts = new  ArrayList<>();
+        List<Post> posts = new ArrayList<>();
         postRepository.findAll().forEach(posts::add);
         return posts;
     }
@@ -33,5 +33,17 @@ public class PostService {
 
     public void deletePost(int postId) {
         postRepository.deleteById(postId);
+    }
+
+    public Post getPost(int postId) {
+        return postRepository.findById(postId).get();
+    }
+
+    public List<Post> getSearchedPost(String s) {
+        List<Post> posts = new ArrayList<>();
+        postRepository.findAllByContentContainingOrTitleContainingOrUserUsername(s)
+                .forEach(posts::add);
+
+        return posts;
     }
 }
