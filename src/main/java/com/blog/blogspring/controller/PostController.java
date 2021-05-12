@@ -28,9 +28,9 @@ public class PostController {
         return postService.getPost(postId);
     }
 
-    @PostMapping("")
-    public void addPost(@RequestBody Post post) {
-        postService.addPost(post);
+    @PostMapping("/users/{userId}")
+    public void addPost(@PathVariable int userId, @RequestBody Post post) {
+        postService.addPost(userId, post);
     }
 
     @PutMapping("/{postId}")

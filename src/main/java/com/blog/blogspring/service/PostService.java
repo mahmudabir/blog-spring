@@ -22,7 +22,8 @@ public class PostService {
         return posts;
     }
 
-    public void addPost(Post post) {
+    public void addPost(int userId, Post post) {
+        post.setUser(new User(userId, "", "", "", "", "", 2));
         postRepository.save(post);
     }
 
