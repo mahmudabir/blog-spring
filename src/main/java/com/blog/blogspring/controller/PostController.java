@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/posts")
 public class PostController {
@@ -45,6 +46,6 @@ public class PostController {
 
     @GetMapping("/search/{s}")
     public List<Post> getSearchedPost(@PathVariable String s) {
-      return postService.getSearchedPost(s);
+        return postService.getSearchedPost(s);
     }
 }
