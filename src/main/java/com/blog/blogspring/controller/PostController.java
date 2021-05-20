@@ -30,13 +30,13 @@ public class PostController {
     }
 
     @PostMapping("/users/{userId}")
-    public void addPost(@PathVariable int userId, @RequestBody Post post) {
-        postService.addPost(userId, post);
+    public Post addPost(@PathVariable int userId, @RequestBody Post post) {
+       return postService.addPost(userId, post);
     }
 
     @PutMapping("/{postId}")
-    public void getUser(@PathVariable int postId, @RequestBody Post post) {
-        postService.updatePost(postId, post);
+    public Post getUser(@PathVariable int postId, @RequestBody Post post) {
+       return postService.updatePost(postId, post);
     }
 
     @DeleteMapping("/{postId}")

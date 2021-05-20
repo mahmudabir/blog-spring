@@ -22,14 +22,14 @@ public class PostService {
         return posts;
     }
 
-    public void addPost(int userId, Post post) {
+    public Post addPost(int userId, Post post) {
         post.setUser(new User(userId, "", "", "", "", "", 2));
-        postRepository.save(post);
+        return postRepository.save(post);
     }
 
-    public void updatePost(int postId, Post post) {
+    public Post updatePost(int postId, Post post) {
         post.setId(postId);
-        postRepository.save(post);
+        return postRepository.save(post);
     }
 
     public void deletePost(int postId) {

@@ -31,9 +31,9 @@ public class CommentService {
         commentRepository.save(comment);
     }
 
-    public void updateCommentByPostIdAndCommentId(int postId, int commentId, Comment comment) {
+    public Comment updateCommentByPostIdAndCommentId(int postId, int commentId, Comment comment) {
         comment.setId(commentId);
-        commentRepository.save(comment);
+       return commentRepository.save(comment);
     }
 
     public void deleteCommentByPostIdAndCommentId(int postId, int commentId) {

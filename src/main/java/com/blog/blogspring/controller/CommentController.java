@@ -16,27 +16,27 @@ public class CommentController {
     private CommentService commentService;
 
     @GetMapping("/comments")
-    public List<Comment> getAllCommentsByPostId(@PathVariable int postId){
+    public List<Comment> getAllCommentsByPostId(@PathVariable int postId) {
         return commentService.getAllCommentsByPostId(postId);
     }
 
     @PostMapping("/comments/users/{userId}")
-    public void addCommentsByPostId(@PathVariable int postId, @PathVariable int userId, @RequestBody Comment comment){
+    public void addCommentsByPostId(@PathVariable int postId, @PathVariable int userId, @RequestBody Comment comment) {
         commentService.addCommentsByPostId(postId, userId, comment);
     }
 
     @GetMapping("/comments/{commentId}")
-    public List<Comment> getAllCommentsByPostId(@PathVariable int postId, @PathVariable int commentId){
+    public List<Comment> getAllCommentsByPostId(@PathVariable int postId, @PathVariable int commentId) {
         return commentService.getCommentByPostIdAndCommentId(postId, commentId);
     }
 
     @PutMapping("/comments/{commentId}")
-    public void updateCommentByPostIdAndCommentId(@PathVariable int postId, @PathVariable int commentId, @RequestBody Comment comment){
-        commentService.updateCommentByPostIdAndCommentId(postId, commentId, comment);
+    public Comment updateCommentByPostIdAndCommentId(@PathVariable int postId, @PathVariable int commentId, @RequestBody Comment comment) {
+        return commentService.updateCommentByPostIdAndCommentId(postId, commentId, comment);
     }
 
     @DeleteMapping("/comments/{commentId}")
-    public void deleteCommentByPostIdAndCommentId(@PathVariable int postId, @PathVariable int commentId){
+    public void deleteCommentByPostIdAndCommentId(@PathVariable int postId, @PathVariable int commentId) {
         commentService.deleteCommentByPostIdAndCommentId(postId, commentId);
     }
 }
