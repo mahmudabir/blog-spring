@@ -1,8 +1,10 @@
 package com.blog.blogspring.controller;
 
 
+import com.blog.blogspring.entity.Comment;
 import com.blog.blogspring.entity.Post;
 import com.blog.blogspring.entity.User;
+import com.blog.blogspring.service.CommentService;
 import com.blog.blogspring.service.PostService;
 import com.blog.blogspring.service.UserService;
 import javafx.geometry.Pos;
@@ -18,6 +20,8 @@ public class PostController {
 
     @Autowired
     private PostService postService;
+    @Autowired
+    private CommentService commentService;
 
     @GetMapping("")
     public List<Post> getAllPosts() {
@@ -31,16 +35,22 @@ public class PostController {
 
     @PostMapping("/users/{userId}")
     public Post addPost(@PathVariable int userId, @RequestBody Post post) {
-       return postService.addPost(userId, post);
+        return postService.addPost(userId, post);
     }
 
     @PutMapping("/{postId}")
     public Post getUser(@PathVariable int postId, @RequestBody Post post) {
-       return postService.updatePost(postId, post);
+        return postService.updatePost(postId, post);
     }
 
     @DeleteMapping("/{postId}")
     public void getUser(@PathVariable int postId) {
+        List<Comment> comments = commentService.getAllCommentsByPostId(postId);
+
+        for (Comment comment: comments) {
+            commentService.deleteCommentByPostIdAndCommentId(postId, comment.getId());
+        }
+
         postService.deletePost(postId);
     }
 

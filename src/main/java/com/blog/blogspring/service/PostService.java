@@ -2,6 +2,7 @@ package com.blog.blogspring.service;
 
 import com.blog.blogspring.entity.Post;
 import com.blog.blogspring.entity.User;
+import com.blog.blogspring.repository.CommentRepository;
 import com.blog.blogspring.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,9 @@ public class PostService {
 
     @Autowired
     private PostRepository postRepository;
+
+    @Autowired
+    private CommentRepository commentRepository;
 
     public List<Post> getAllPosts() {
         List<Post> posts = new ArrayList<>();

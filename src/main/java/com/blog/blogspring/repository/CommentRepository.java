@@ -8,4 +8,6 @@ import java.util.List;
 public interface CommentRepository extends CrudRepository<Comment, Integer> {
 
     public List<Comment> findAllByPostId(int postId);
+
+    public void deleteById(int commentId);
 }
